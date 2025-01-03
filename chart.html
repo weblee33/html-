@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>區塊鏈問卷視覺化</title>
+  <!-- Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    // 加載Google Charts
+    google.charts.load('current', { packages: ['corechart'] });
+
+    // 當資料準備好時，初始化
+    google.charts.setOnLoadCallback(init);
+
+    function init() {
+      const sheetId = '1MMtfA9DgnGOmPnvKvU-9hWRatUKrwVjwJ4iBHcZqGVM'; // 替換成你的試算表ID
+      const sheetName = '表單回應1'; // 替換成你的工作表名稱
+      const queryUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${sheetName}`;
+      const query = new google.visualization.Query(queryUrl);
+
+      query.setQuery('select *'); // 查詢整個表
+      query.send(drawCharts);
+    }
+
+    function drawCharts(response) {
+      if (response.isError()) {
+        console.error('資料讀取錯誤:', response.getMessage());
+        document.body.innerHTML = `<p style="color: red; text-align: center;">無法讀取資料：${response.getMessage()}</p>`;
+        return;
+      }
+
+      const data = response.getDataTable();
+      
+      if (!data || data.getNumberOfRows() === 0) {
+        document.body.innerHTML = `<p style="text-align: center;">目前無資料可視覺化。</p>`;
+        return;
+      }
+
+      // 是否聽過區塊鏈
+      const blockchainData = new google.visualization.DataTable();
+      blockchainData.addColumn('string', '回應');
+      blockchainData.addColumn('number', '人數');
+
+      const blockchainYes = data.getFilteredRows([{ column: 3, value: '有' }]).length;
+      const blockchainNo = data.getFilteredRows([{ column: 3, value: '沒有' }]).length;
+
+      blockchainData.addRows([
+        ['有', blockchainYes],
+        ['沒有', blockchainNo],
+      ]);
+
+      const blockchainOptions = {
+        title: '是否聽過區塊鏈?',
+        pieSliceText: 'percentage',
+        width: 600,
+        height: 400,
+      };
+
+      const blockchainChart = new google.visualization.PieChart(document.getElementById('blockchain-chart'));
+      blockchainChart.draw(blockchainData, blockchainOptions);
+
+      // 有買過加密貨幣嗎
+      const cryptoData = new google.visualization.DataTable();
+      cryptoData.addColumn('string', '回應');
+      cryptoData.addColumn('number', '人數');
+
+      const cryptoYes = data.getFilteredRows([{ column: 5, value: '有' }]).length;
+      const cryptoNo = data.getFilteredRows([{ column: 5, value: '沒有' }]).length;
+
+      cryptoData.addRows([
+        ['有', cryptoYes],
+        ['沒有', cryptoNo],
+      ]);
+
+      const cryptoOptions = {
+        title: '有買過加密貨幣嗎?',
+        pieSliceText: 'percentage',
+        width: 600,
+        height: 400,
+      };
+
+      const cryptoChart = new google.visualization.PieChart(document.getElementById('crypto-chart'));
+      cryptoChart.draw(cryptoData, cryptoOptions);
+
+      // 留言板: 簡單說一下對於區塊鏈或加密貨幣的看法
+      let commentsHtml = '';
+      for (let i = 0; i < data.getNumberOfRows(); i++) {
+        const comment = data.getValue(i, 4); // 第四欄是意見
+        if (comment) {
+          commentsHtml += `<p>${comment}</p>`;
+        }
+      }
+      document.getElementById('comments').innerHTML = commentsHtml || '<p>目前無留言。</p>';
+    }
+  </script>
+</head>
+<body>
+  <div style="text-align: center; padding: 20px;">
+    <h1>區塊鏈問卷視覺化</h1>
+    <p>以下為針對區塊鏈和加密貨幣的問卷回應資料。</p>
+  </div>
+
+  <!-- 圓餅圖 -->
+  <div id="blockchain-chart" style="margin: 20px auto; width: 600px; height: 400px;"></div>
+  <div id="crypto-chart" style="margin: 20px auto; width: 600px; height: 400px;"></div>
+
+  <!-- 留言區 -->
+  <div style="width: 80%; margin: 30px auto;">
+    <h2>留言板: 對於區塊鏈或加密貨幣的看法</h2>
+    <div id="comments" style="border: 1px solid #ccc; padding: 20px; background-color: #f9f9f9; max-height: 400px; overflow-y: scroll;">
+      <p>讀取中...</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>詳細資訊</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 id="title">載入中...</h1>
+        <img id="image" src="" alt="圖片" />
+        <p id="description">載入中...</p>
+    
+      
+    </div>
+
+    <script>
+        // 解析 URL 的參數
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // 從 Google 試算表獲取資料
+        async function fetchData(bcValue) {
+            const sheetId = "1MMtfA9DgnGOmPnvKvU-9hWRatUKrwVjwJ4iBHcZqGVM"; // 替換成您的試算表 ID
+            const apiKey = "AIzaSyBXP4FXKgm8wP12qRBGN3HY8H_3NGeL4Ek"; // 替換成您的 API Key
+            const range = "區塊鏈資料!A:E"; // 替換成試算表的範圍
+
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // 根據 bcValue 找到對應的資料行
+            const row = data.values[parseInt(bcValue) + 1]; // 跳過標題行
+            if (row) {
+                return {
+                    title: row[0],
+                    description: row[1],
+                    
+                    
+                    image: row[4]
+                };
+            } else {
+                throw new Error("資料行不存在！");
+            }
+        }
+
+        // 初始化網頁內容
+        async function initPage() {
+            const bcValue = getQueryParam("bc");
+            if (bcValue === null) {
+                document.querySelector(".content").innerHTML = "<p>未提供參數。</p>";
+                return;
+            }
+
+            try {
+                const data = await fetchData(bcValue);
+                document.getElementById("title").innerText = data.title;
+                document.getElementById("description").innerText = data.description;
+                document.getElementById("image").src = data.image;
+                document.getElementById("image").alt = data.title;
+            } catch (error) {
+                document.querySelector(".content").innerHTML = `<p>錯誤：${error.message}</p>`;
+            }
+        }
+
+        // 執行初始化
+        initPage();
+    </script>
+</body>
+</html>
