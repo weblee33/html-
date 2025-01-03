@@ -3,23 +3,60 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Parallax Template - Materialize</title>
+  <title>Blockpedia</title>
+  
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style>
+    #card-container {
+      display: flex;
+      flex-wrap: wrap; /* 確保多行排列 */
+     
+      justify-content: center;
+  }
+     /* 文字樣式 */
+     .card-title, p, a {
+            font-family: 'Roboto', sans-serif; /* 使用 Roboto 字體 */
+            font-weight: bold; /* 設定粗體 */
+        }
+    /* 限制圖片大小，並讓超出部分裁剪 */
+    .card-image img {
+        height: 200px; /* 固定圖片高度 */
+        width: 100%; /* 填滿寬度 */
+        /*object-fit: cover;  保持圖片比例，裁剪超出部分 */
+        border-radius: 4px; /* 圓角與卡片一致 */
+        display: flex;
+        
+    }
+    .card {
+      width: 100%; /* 卡片寬度隨父容器變化 */
+      height: 400px; /* 統一高度 */
+      
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+  }
+  .hidden {
+            display: none;
+        }
+
+</style>
+
+
 </head>
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">區塊鏈介紹平台</a>
+      <a id="logo-container" href="#" class="brand-logo">區塊知識庫</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
+        <li><a href="chart.html"> 使用者數據統計</a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
+        <li><a href="chart.html">使用者數據統計</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
@@ -29,133 +66,176 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
-        <div class="row center">
+        <h1 class="brand-logo center black-text text-lighten-2">區塊知識庫</h1>
+        <!-- <div class="row center">
           <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-        <div class="row center">
+        </div> -->
+        <!-- <div class="row center">
           <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-        </div>
+        </div> -->
         <br><br>
 
       </div>
     </div>
-    <div class="parallax"><img src="blockchain.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="background2.webp" alt="Unsplashed background img 1"></div>
   </div>
 
 
-  <div class="container">
-    <div class="section">
 
-      <!--   Icon Section   -->
-      <div class="row">
-        <a href="#blockchain">
-        <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="D:\school\大四\大四上\Html程式設計\data-tracking-system\static\assets\img\1600X900-How-does-blockchain-work.jpg">
-              <span class="card-title">區塊鍊</span>
-            </div></a>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-        </div>
-        <a href="#blockchain">
-            <div class="col s12 m4">
-              <div class="card">
-                <div class="card-image">
-                  <img src="D:\school\大四\大四上\Html程式設計\data-tracking-system\static\assets\img\1600X900-How-does-blockchain-work.jpg">
-                  <span class="card-title">區塊鍊</span>
-                </div></a>
-                <div class="card-content">
-                  <p>I am a very simple card. I am good at containing small bits of information.
-                  I am convenient because I require little markup to use effectively.</p>
-                </div>
-              </div>
-            </div>
-        <a href="#blockchain">
-            <div class="col s12 m4">
-                <div class="card">
-                <div class="card-image">
-                    <img src="D:\school\大四\大四上\Html程式設計\data-tracking-system\static\assets\img\1600X900-How-does-blockchain-work.jpg">
-                    <span class="card-title">區塊鍊</span>
-                </div></a>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                </div>
-                </div>
-            </div>    
-        </div>
 
+  <div class="row">
+    <div class="col s6 m3">
+      <div class="card">
+        <div class="card-image">
+          <img src="blockchain.jpg">
+          <!-- <span class="card-title">區塊鍊</span> -->
+        </div>
+        <div class="card-content">
+          <a href="detail.html?bc=0">區塊鏈是什麼?</a>
+          <p>區塊鏈是一種數據庫技術，是一種去中心化的數據存儲技術，是一種分佈式數據存儲、傳輸和共享技術。區塊鏈是一種數據庫技術，是一種去中心化的數據存儲技術，是一種分佈式數據存儲、傳輸和共享技術。</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s6 m3">
+      <div class="card">
+        <div class="card-image">
+          <img src="Bitcoin.png">
+          <!-- <span class="card-title">區塊鍊</span> -->
+        </div>
+        <div class="card-content">
+          <a href="detail.html?bc=2">比特幣是什麼?</a>
+          <p>比特幣是一種去中心化的數字貨幣，沒有中央銀行或單一管理機構控制。比特幣是一種加密貨幣，也是一種數字貨幣，是一種基於密碼學原理運作的貨幣。
+        </div>
+      </div>
+    </div>
+    <div class="col s6 m3">
+        <div class="card">
+        <div class="card-image">
+            <img src="ether.png">
+            <!-- <span class="card-title">區塊鍊</span> -->
+        </div>
+        <div class="card-content">
+          <a href="detail.html?bc=1">以太坊是什麼?</a>
+          <p>以太坊是一個開源的區塊鏈平台，允許任何人在上面構建和使用去中心化應用。以太坊是一個分散式的區塊鏈系統，用於智能合約的運行：這是一種協議，用於自動執行合同。</p>
+        </div>
+        </div>
+    </div>
+    <div class="col s6 m3">
+        <div class="card">
+        <div class="card-image">
+            <img src="SatoshiNakamoto.jpeg">
+            <!-- <span class="card-title">區塊鍊</span> -->
+        </div>
+        <div class="card-content">
+          <a href="detail.html?bc=3">中本聰是誰?</a>
+          <p>中本聰是比特幣的創始人，但他的真實身份至今仍然是一個謎。中本聰是比特幣的創始人，但他的真實身份至今仍然是一個謎。</p>
+        </div>
+        </div>
     </div>
   </div>
 
+  
 
+
+<!-- 動態抓取的卡片（默認隱藏） -->
+<div id="dynamic-cards" class="row hidden">
+  <!-- 以下將由JavaScript動態生成 -->
+</div>
+
+  <!-- 查看更多按鈕 -->
+  <div class="center-align">
+    <a id="show-more-btn" class="waves-effect waves-light btn">查看更多</a>
+</div>
+  <br>
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 light">幣圈新聞</h5>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img src="background.webp" alt="Unsplashed background img 2"></div>
+  </div>
+  <div class="container">
+    <ul id="news-container" class="collection"></ul>
+
+    <ul class="pagination" id="pagination"></ul>
   </div>
 
+  
   <div class="container">
     <div class="section">
-
       <div class="row">
         <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
           <h4>使用者回饋</h4>
+          <form id="feedbackForm" >
+            <!-- Name Field -->
             <div class="row">
-              <form class="col s12">
-                <div class="row">
-                  <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="name" type="text" class="validate">
-                    <label for="name">Name</label>
-                  </div>
-                  <div class="input-field col s6">
-                    <input id="gmail" type="email" class="validate">
-                    <label for="gmail">gmail</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea id="suggestion" class="materialize-textarea"></textarea>
-                    <label for="suggestion">建議</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea id="question" class="materialize-textarea"></textarea>
-                    <label for="question">問題</label>
-                  </div>
-                </div>
-                <div class="center-align">
-                  <button class="btn waves-effect waves-light" type="submit" id="submitButton">
-                    提交
-                    <i class="material-icons right">send</i>
-                  </button>
-                </div>
-              </form>
+              <div class="input-field col s6">
+                <input id="name" name="entry.YOUR_NAME_ENTRY_ID" type="text" class="validate" required>
+                <label for="name">Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="email" name="entry.YOUR_EMAIL_ENTRY_ID" type="email" class="validate" required>
+                <label for="email">Email</label>
+              </div>
             </div>
+
+            <!-- Question1 Field -->
+            <div class="row">
+              <div class="input-field col s12">
+                <select id="question1" name="entry.YOUR_QUESTION1_ENTRY_ID" required>
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="有">有</option>
+                  <option value="沒有">沒有</option>
+                </select>
+                <!-- <textarea id="question1" name="entry.YOUR_QUESTION1_ENTRY_ID" class="materialize-textarea" required></textarea> -->
+                <label for="question1">是否聽過區塊鏈?</label>
+              </div>
+            </div>
+
+            <!-- Question2 Field -->
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="question2" name="entry.YOUR_QUESTION2_ENTRY_ID" class="materialize-textarea"></textarea>
+                <label for="question2">簡單說一下對於區塊鏈或加密或幣的看法?</label>
+              </div>
+            </div>
+
+            <!-- Question3 Field -->
+            <div class="row">
+              <div class="input-field col s12">
+                <select id="question3" name="entry.YOUR_QUESTION3_ENTRY_ID" required>
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="有">有</option>
+                  <option value="沒有">沒有</option>
+                </select>
+                <!-- <textarea id="interest" name="entry.YOUR_QUESTION3_ENTRY_ID" class="materialize-textarea"></textarea> -->
+                <label for="question3">有買過加密貨幣嗎?</label>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="center-align">
+              <button class="btn waves-effect waves-light" type="submit">
+                提交
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
-
     </div>
   </div>
+
 
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
         </div>
       </div>
     </div>
@@ -166,34 +246,34 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">Website Bio</h5>
+          <p class="grey-text text-lighten-4">區塊知識庫 (Blockpedia) 是一個專為區塊鏈新手及愛好者打造的知識平台，旨在深入淺出地介紹區塊鏈的基礎概念，包括比特幣、乙太坊等主流技術。我們以清晰易懂的內容，幫助使用者掌握區塊鏈的核心原理，並提供最新的區塊鏈新聞連結，讓您時刻了解這個快速發展的領域。我們的使命是推動區塊鏈教育，連結知識與實踐，為您的區塊鏈探索之旅提供全方位支持！</p>
 
 
         </div>
         <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+          <!-- <h5 class="white-text">Settings</h5>
           <ul>
             <li><a class="white-text" href="#!">Link 1</a></li>
             <li><a class="white-text" href="#!">Link 2</a></li>
             <li><a class="white-text" href="#!">Link 3</a></li>
             <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
+          </ul> -->
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Connect</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li><a class="white-text" href="https://www.linkedin.com/in/winstonlee-4a844b269/">Linkedin</a></li>
+            <li><a class="white-text" href="https://x.com/WinstonLee2002">X</a></li>
+            <!-- <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li> -->
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      © 2024 Winston Lee. All Rights Reserved.
       </div>
     </div>
   </footer>
@@ -203,31 +283,224 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <!-- 表單寫入試算表 -->
   <script>
-    // 抓輸入的值
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+  </script>
+  <script>
+    $('#feedbackForm').submit(function (e) {
+      //在這裡我們要先擋掉form默認事件
+      e.preventDefault();
 
-    function getValues() {
+      if ($('#name').val() && $('#email').val()) {//需要先確認必填欄位是否填寫
+        $.ajax({
+          // url為Google Form按下submit的aciotn
+          url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLScrbHq2aE8KIAAUhDGSyIcLxC09MCzB1F0XxqUGk24_EgaELw/formResponse",
+          crossDomain: true,//解決跨網域CORS的問題
+          data: {// entry.xxxxx 這些需要填寫您表單裡面的值，與其相互對應
+            "entry.130017841": $('#name').val(),
+            "entry.233795706": $('#email').val(),
+            "entry.1221594769": $('#question1').val(),
+            "entry.1607329208": $('#question2').val(),
+            "entry.1965634749": $('#question3').val()
+          },
+          type: "POST", //因為是要進行insert的動作，故事用POST
+          dataType: "JSONP",
+          complete: function () {
+            //完成後把這些欄位清空
+            $('#name').val('')
+            $('#email').val('')
+            $('#question1').val('')
+            $('#question2').val('')
+            $('#question3').val('')
+            //最後跳轉到感謝的頁面
+            window.location.replace("index.html");
+          }
+        });
+      }
+    });
+  </script>
+  
 
-        var name = document.getElementById("name");
-        var email = document.getElementById("email");
-        var comments = document.getElementById("suggestion");
-        var comments = document.getElementById("question");
-        var rowData = {
-            name: name.value,
-            email: email.value,
-            comments: comments.value,
-            question: question.value
-        };
 
-        // 上傳資料
-        google.script.run.addData(rowData);
-        // 清除表單上的資料 
-        document.getElementById("myForm").reset();
-        // 完成後的訊息
-        alert("謝謝您的回饋，我們會儘快處理您的留言，謝謝！");
+  <script>
+    // 查看更多按鈕事件
+    document.getElementById('show-more-btn').addEventListener('click', () => {
+          const dynamicCards = document.getElementById('dynamic-cards');
+          dynamicCards.classList.toggle('hidden');// 切換隱藏狀態
+         if (!dynamicCards.dataset.loaded) {
+            generateDynamicCards();
+            dynamicCards.dataset.loaded = 'true';
+         }         
+         const btn = document.getElementById('show-more-btn');
+         btn.textContent = dynamicCards.classList.contains('hidden') ? '查看更多' : '隱藏內容';
+    });
+</script>
+
+
+<script>
+  const sheetId = '1MMtfA9DgnGOmPnvKvU-9hWRatUKrwVjwJ4iBHcZqGVM';
+  const apiKey = 'AIzaSyBXP4FXKgm8wP12qRBGN3HY8H_3NGeL4Ek';
+  const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/區塊鏈資料?key=${apiKey}`;
+
+  function generateDynamicCards() {
+    fetch(endpoint)
+          .then(response => response.json())
+          .then(data => {
+              console.log('Data from Google Sheets:', data); // 確認數據結構是否正確
+
+              const rows = data.values;
+              const cardContainer = document.querySelector("#dynamic-cards");
+
+              // 跳過標題列，動態生成卡片
+              rows.slice(1).forEach((row,index) => {
+                  const rowId = index ; // 獲取行數（從0開始計算）
+
+                  const colDiv = document.createElement("div");
+                  colDiv.classList.add("col", "s6", "m3",);
+
+                  const cardDiv = document.createElement("div");
+                  cardDiv.classList.add("card");
+
+                  const cardImageDiv = document.createElement("div");
+                  cardImageDiv.classList.add("card-image");
+
+                  const img = document.createElement("img");
+                  img.src = row[4]; // 圖片 URL (圖片鏈接在第5列)
+
+                  const span = document.createElement("span");
+                  span.classList.add("card-title" ,"blue-grey-text", "text-darken-4");
+                  span.textContent = row[0]; // 標題 (標題在第1列)
+
+                  const cardContentDiv = document.createElement("div");
+                  cardContentDiv.classList.add("card-content");
+                  
+                  const p = document.createElement("p");
+                  p.textContent = row[2]; // 描述內容 (假設內容在第4列)
+
+                  const a = document.createElement("a");
+                  a.href = row[3]+'?bc='+rowId; // 假設連結在第4列
+                  a.textContent = row[0];
+                  a.target = "_blank";
+
+                  // 將元素組合在一起
+                  cardImageDiv.appendChild(img);
+                  // cardImageDiv.appendChild(span);
+                  cardDiv.appendChild(cardImageDiv);
+                  cardContentDiv.appendChild(a);
+                  cardContentDiv.appendChild(p);
+                  cardDiv.appendChild(cardContentDiv);
+                  colDiv.appendChild(cardDiv);
+
+                  // 添加到容器中
+                  cardContainer.appendChild(colDiv);
+              });
+          })
+          .catch(error => console.error('Error fetching data:', error));
+          
+  }
+</script>
+
+
+
+<script>
+  const SHEET_ID = '1MMtfA9DgnGOmPnvKvU-9hWRatUKrwVjwJ4iBHcZqGVM'; // Replace with your Google Sheet ID
+  const API_KEY = 'AIzaSyBXP4FXKgm8wP12qRBGN3HY8H_3NGeL4Ek'; // Replace with your API Key
+  const SHEET_NAME = '區塊鏈新聞';
+  const ITEMS_PER_PAGE = 2; // Number of news items per page
+
+  let currentPage = 1;
+  let totalPages = 1;
+  let newsRows = [];
+
+  // Fetch news from Google Sheets
+  async function fetchNews() {
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      newsRows = data.values.slice(1); // Skip header row
+      totalPages = Math.ceil(newsRows.length / ITEMS_PER_PAGE);
+      renderPagination();
+      renderNews(currentPage);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      document.getElementById('news-container').innerHTML = '<p>Error loading news.</p>';
+    }
+  }
+
+  // Render news
+  function renderNews(page) {
+    const newsContainer = document.getElementById('news-container');
+    newsContainer.innerHTML = ''; // Clear container
+
+    const start = (page - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    const rows = newsRows.slice(start, end);
+
+    rows.forEach((row) => {
+      const li = document.createElement("li");
+      li.classList.add("collection-item");
+
+      // Create the news link
+      const a = document.createElement("a");
+      a.href = row[1];  // Assuming link is in the second column
+      a.textContent = row[0];  // Assuming title is in the first column
+      a.target = "_blank";
+      a.classList.add("blue-text", "text-darken-2");
+
+      // Create the publish date paragraph
+      const p = document.createElement("p");
+      p.textContent = `發布時間: ${row[2]}`;  // Assuming publish date is in the third column
+
+      li.appendChild(a);
+      li.appendChild(p);
+      newsContainer.appendChild(li);
+    });
+  }
+
+  // Render pagination
+  function renderPagination() {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = ''; // Clear pagination
+
+    // Previous button
+    const prevLi = document.createElement("li");
+    prevLi.classList.add(currentPage === 1 ? 'disabled' : 'waves-effect');
+    prevLi.innerHTML = `<a href="#!"><i class="material-icons">chevron_left</i></a>`;
+    prevLi.addEventListener('click', () => changePage(currentPage - 1));
+    pagination.appendChild(prevLi);
+
+    // Page numbers
+    for (let i = 1; i <= totalPages; i++) {
+      const pageLi = document.createElement("li");
+      pageLi.classList.add(i === currentPage ? 'active' : 'waves-effect');
+      pageLi.innerHTML = `<a href="#!">${i}</a>`;
+      pageLi.addEventListener('click', () => changePage(i));
+      pagination.appendChild(pageLi);
     }
 
-    document.getElementById("submitButton").addEventListener("click", getValues);
-  </script>
+    // Next button
+    const nextLi = document.createElement("li");
+    nextLi.classList.add(currentPage === totalPages ? 'disabled' : 'waves-effect');
+    nextLi.innerHTML = `<a href="#!"><i class="material-icons">chevron_right</i></a>`;
+    nextLi.addEventListener('click', () => changePage(currentPage + 1));
+    pagination.appendChild(nextLi);
+  }
+
+  // Change page
+  function changePage(page) {
+    if (page < 1 || page > totalPages) return;
+    currentPage = page;
+    renderNews(currentPage);
+    renderPagination();
+  }
+
+  // Fetch and display news on page load
+  fetchNews();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
