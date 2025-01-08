@@ -17,6 +17,17 @@
      
       justify-content: center;
   }
+    .custom-link {
+      color: #000000; /* 初始颜色 */
+      text-decoration: none; /* 去掉默认的下划线 */
+      transition: color 0.3s ease; /* 增加颜色变化的过渡效果 */
+  }
+
+  .custom-link:hover {
+      color: #ff5722; /* 鼠标悬停时的颜色 */
+      /*text-decoration: underline;  鼠标悬停时显示下划线 */
+  }
+
      /* 文字樣式 */
      .card-title, p, a {
             font-family: 'Roboto', sans-serif; /* 使用 Roboto 字體 */
@@ -50,7 +61,7 @@
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">區塊知識庫</a>
+      <a id="logo-container" href="index.html" class="brand-logo">區塊知識庫</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="chart.html"> 使用者數據統計</a></li>
       </ul>
@@ -78,53 +89,64 @@
 
 
   <div class="row">
+    
     <div class="col s6 m3">
-      <div class="card">
-        <div class="card-image">
-          <img src="images/blockchain.jpg">
-          <!-- <span class="card-title">區塊鍊</span> -->
-        </div>
-        <div class="card-content">
-          <a href="detail.html?bc=0">區塊鏈是什麼?</a>
-          <p>區塊鏈是一種數據庫技術，是一種去中心化的數據存儲技術，是一種分佈式數據存儲、傳輸和共享技術。區塊鏈是一種數據庫技術，是一種去中心化的數據存儲技術，是一種分佈式數據存儲、傳輸和共享技術。</p>
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3">
-      <div class="card">
-        <div class="card-image">
-          <img src="images/Bitcoin.png">
-          <!-- <span class="card-title">區塊鍊</span> -->
-        </div>
-        <div class="card-content">
-          <a href="detail.html?bc=2">比特幣是什麼?</a>
-          <p>比特幣是一種去中心化的數字貨幣，沒有中央銀行或單一管理機構控制。比特幣是一種加密貨幣，也是一種數字貨幣，是一種基於密碼學原理運作的貨幣。
-        </div>
-      </div>
-    </div>
-    <div class="col s6 m3">
+      <a href="detail.html?bc=0"  class="custom-link">
         <div class="card">
-        <div class="card-image">
-            <img src="images/ether.png">
+          <div class="card-image">
+            <img src="images/blockchain.webp">
             <!-- <span class="card-title">區塊鍊</span> -->
+          </div>
+          <div class="card-content">
+            區塊鏈是什麼?
+            <p>區塊鏈是一種數據庫技術，是一種去中心化的數據存儲技術，是一種分佈式數據存儲、傳輸和共享技術。區塊鏈是一種數據庫技術，是一種去中心化的數據存儲技術，是一種分佈式數據存儲、傳輸和共享技術。</p>
+          </div>
         </div>
-        <div class="card-content">
-          <a href="detail.html?bc=1">以太坊是什麼?</a>
-          <p>以太坊是一個開源的區塊鏈平台，允許任何人在上面構建和使用去中心化應用。以太坊是一個分散式的區塊鏈系統，用於智能合約的運行：這是一種協議，用於自動執行合同。</p>
+      </a>
+    </div>
+      
+    
+    <div class="col s6 m3">
+      <a href="detail.html?bc=1" class="custom-link">  
+        <div class="card">
+          <div class="card-image">
+              <img src="images/ethereum.jpeg">
+              <!-- <span class="card-title">區塊鍊</span> -->
+          </div>
+          <div class="card-content">
+            以太坊是什麼?
+            <p>以太坊是一個開源的區塊鏈平台，允許任何人在上面構建和使用去中心化應用。以太坊是一個分散式的區塊鏈系統，用於智能合約的運行：這是一種協議，用於自動執行合同。</p>
+          </div>
         </div>
-        </div>
+      </a>
     </div>
     <div class="col s6 m3">
+      <a href="detail.html?bc=2" class="custom-link">
         <div class="card">
-        <div class="card-image">
-            <img src="images/SatoshiNakamoto.jpeg">
+          <div class="card-image">
+            <img src="images/bitcoin.webp">
             <!-- <span class="card-title">區塊鍊</span> -->
+          </div>
+          <div class="card-content">
+            比特幣是什麼?
+            <p>比特幣是一種去中心化的數字貨幣，沒有中央銀行或單一管理機構控制。比特幣是一種加密貨幣，也是一種數字貨幣，是一種基於密碼學原理運作的貨幣。
+          </div>
         </div>
-        <div class="card-content">
-          <a href="detail.html?bc=3">中本聰是誰?</a>
-          <p>中本聰是比特幣的創始人，但他的真實身份至今仍然是一個謎。中本聰是比特幣的創始人，但他的真實身份至今仍然是一個謎。</p>
+      </a>
+    </div>
+    <div class="col s6 m3">
+      <a href="detail.html?bc=3" class="custom-link"> 
+        <div class="card">
+          <div class="card-image">
+              <img src="images/SatoshiNakamoto.jpeg">
+              <!-- <span class="card-title">區塊鍊</span> -->
+          </div>
+          <div class="card-content">
+            中本聰是誰?
+            <p>中本聰是比特幣的創始人，但他的真實身份至今仍然是一個謎。中本聰是比特幣的創始人，但他的真實身份至今仍然是一個謎。</p>
+          </div>
         </div>
-        </div>
+      </a> 
     </div>
   </div>
 
@@ -145,7 +167,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">幣圈新聞</h5>
+          <h2 class="header col s12 light black-text">幣圈新聞</h2>
         </div>
       </div>
     </div>
@@ -349,8 +371,8 @@
               const cardContainer = document.querySelector("#dynamic-cards");
 
               // 跳過標題列，動態生成卡片
-              rows.slice(1).forEach((row,index) => {
-                  const rowId = index ; // 獲取行數（從0開始計算）
+              rows.slice(5).forEach((row,index) => {
+                  const rowId = index + 4; // 獲取行數（從0開始計算）
 
                   const colDiv = document.createElement("div");
                   colDiv.classList.add("col", "s6", "m3",);
@@ -371,22 +393,28 @@
                   const cardContentDiv = document.createElement("div");
                   cardContentDiv.classList.add("card-content");
                   
+                  const ptitle = document.createElement("p");
+                  ptitle.textContent = row[0];
+
                   const p = document.createElement("p");
-                  p.textContent = row[2]; // 描述內容 (假設內容在第4列)
+                  p.textContent = p.textContent + row[2]; // 描述內容 (假設內容在第4列)
 
                   const a = document.createElement("a");
+                  a.classList.add("custom-link");
                   a.href = row[3]+'?bc='+rowId; // 假設連結在第4列
-                  a.textContent = row[0];
-                  a.target = "_blank";
+                  a.textContent = "";
+                  
 
                   // 將元素組合在一起
                   cardImageDiv.appendChild(img);
                   // cardImageDiv.appendChild(span);
+                  a.appendChild(cardDiv);
                   cardDiv.appendChild(cardImageDiv);
-                  cardContentDiv.appendChild(a);
-                  cardContentDiv.appendChild(p);
+                  // cardContentDiv.appendChild(a);
+                  ptitle.appendChild(p);
+                  cardContentDiv.appendChild(ptitle);
                   cardDiv.appendChild(cardContentDiv);
-                  colDiv.appendChild(cardDiv);
+                  colDiv.appendChild(a);
 
                   // 添加到容器中
                   cardContainer.appendChild(colDiv);
@@ -403,7 +431,7 @@
   const SHEET_ID = '1MMtfA9DgnGOmPnvKvU-9hWRatUKrwVjwJ4iBHcZqGVM'; // Replace with your Google Sheet ID
   const API_KEY = 'AIzaSyBXP4FXKgm8wP12qRBGN3HY8H_3NGeL4Ek'; // Replace with your API Key
   const SHEET_NAME = '區塊鏈新聞';
-  const ITEMS_PER_PAGE = 2; // Number of news items per page
+  const ITEMS_PER_PAGE = 6; // Number of news items per page
 
   let currentPage = 1;
   let totalPages = 1;
