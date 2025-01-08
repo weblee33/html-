@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Blockpedia</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>詳細資訊</title>
@@ -19,15 +22,134 @@
             height: auto;
         }
     </style>
+     <style>
+        #card-container {
+          display: flex;
+          flex-wrap: wrap; /* 確保多行排列 */
+         
+          justify-content: center;
+      }
+        .custom-link {
+          color: #000000; /* 初始颜色 */
+          text-decoration: none; /* 去掉默认的下划线 */
+          transition: color 0.3s ease; /* 增加颜色变化的过渡效果 */
+      }
+    
+      .custom-link:hover {
+          color: #ff5722; /* 鼠标悬停时的颜色 */
+          /*text-decoration: underline;  鼠标悬停时显示下划线 */
+      }
+    
+         /* 文字樣式 */
+         .card-title, p, a {
+                font-family: 'Roboto', sans-serif; /* 使用 Roboto 字體 */
+                font-weight: bold; /* 設定粗體 */
+            }
+        /* 限制圖片大小，並讓超出部分裁剪 */
+        .card-image img {
+            height: 200px; /* 固定圖片高度 */
+            width: 100%; /* 填滿寬度 */
+            /*object-fit: cover;  保持圖片比例，裁剪超出部分 */
+            border-radius: 4px; /* 圓角與卡片一致 */
+            display: flex;
+            
+        }
+        .card {
+          width: 100%; /* 卡片寬度隨父容器變化 */
+          height: 400px; /* 統一高度 */
+          
+          flex-direction: column;
+          justify-content: space-between;
+          overflow: hidden;
+      }
+      .hidden {
+                display: none;
+            }
+    
+    </style>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="index.html" class="brand-logo">區塊知識庫</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="chart.html"> 使用者數據統計</a></li>
+          </ul>
+    
+          <ul id="nav-mobile" class="sidenav">
+            <li><a href="chart.html">使用者數據統計</a></li>
+          </ul>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+    
+      <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+          <div class="container">
+            <br><br>
+            <!-- <h1 class="brand-logo center black-text text-lighten-2">區塊知識庫</h1> -->
+            <br><br>
+    
+          </div>
+        </div>
+        <div class="parallax"><img src="images/background2.webp" alt="Unsplashed background img 1"></div>
+      </div>
+    
     <div class="content">
         <h1 id="title">載入中...</h1>
         <img id="image" src="" alt="圖片" />
         <p id="description">載入中...</p>
-    
-      
     </div>
+
+    <!-- <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+          <div class="container">
+            <div class="row center">
+              
+            </div>
+          </div>
+        </div>
+        <div class="parallax"><img src="images/background4.webp" alt="Unsplashed background img 3"></div>
+      </div>
+     -->
+      <footer class="page-footer teal  #f5f5f5 grey lighten-4">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="black-text">網站介紹</h5>
+              <p class=" black-text ">區塊知識庫 (Blockpedia) 是一個專為區塊鏈新手及愛好者打造的知識平台，旨在深入淺出地介紹區塊鏈的基礎概念，包括比特幣、乙太坊等主流技術。我們以清晰易懂的內容，幫助使用者掌握區塊鏈的核心原理，並提供最新的區塊鏈新聞連結，讓您時刻了解這個快速發展的領域。我們的使命是推動區塊鏈教育，連結知識與實踐，為您的區塊鏈探索之旅提供全方位支持！</p>
+    
+    
+            </div>
+            <div class="col l3 s12">
+              <!-- <h5 class="white-text">Settings</h5>
+              <ul>
+                <li><a class="white-text" href="#!">Link 1</a></li>
+                <li><a class="white-text" href="#!">Link 2</a></li>
+                <li><a class="white-text" href="#!">Link 3</a></li>
+                <li><a class="white-text" href="#!">Link 4</a></li>
+              </ul> -->
+            </div>
+            <div class="col l3 s12">
+              <h5 class="black-text">聯絡資訊</h5>
+              <ul>
+                <li><a class="black-text" href="https://www.linkedin.com/in/winstonlee-4a844b269/">Linkedin</a></li>
+                <li><a class="black-text" href="https://x.com/WinstonLee2002">X</a></li>
+                <!-- <li><a class="white-text" href="#!">Link 3</a></li>
+                <li><a class="white-text" href="#!">Link 4</a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright ">
+          <div class="container black-text">
+          © 2024 Winston Lee. All Rights Reserved.
+          </div>
+        </div>
+      </footer>
 
     <script>
         // 解析 URL 的參數
@@ -83,5 +205,10 @@
         // 執行初始化
         initPage();
     </script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 </body>
 </html>
